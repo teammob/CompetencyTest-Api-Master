@@ -1,0 +1,37 @@
+{
+  "plugins": [
+    "prettier",
+    "import"
+  ],
+  "extends": [
+    "airbnb-base",
+    "eslint:recommended",
+    "plugin:import/errors",
+    "prettier"
+
+  ],
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "no-void": 0,
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-unused-expressions": ["error", { "allowShortCircuit": true }],
+    "import/no-unresolved": "off",
+    "import/no-named-as-default": 0,
+    "import/extensions": 0,
+    "guard-for-in": "error",
+    "no-var": "error",
+    "no-console": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true
+      }
+    ]
+
+  }
+}

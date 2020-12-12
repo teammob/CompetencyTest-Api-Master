@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/Users/yucelzengin/NodeJS_test/CompetencyTest-Api-Master/src/service/countries.test.js">
+    <testCase name="countries should return country names" duration="341"/>
+  </file>
+  <file path="/Users/yucelzengin/NodeJS_test/CompetencyTest-Api-Master/src/service/customer.test.js">
+    <testCase name="customer should throw an exception if invalid payload is passed" duration="335"/>
+    <testCase name="customer should throw an exception if age is not provided" duration="1"/>
+    <testCase name="customer should throw an exception if name is not provided" duration="1"/>
+    <testCase name="customer should throw an exception if sex is not provided" duration="0"/>
+    <testCase name="customer should throw an exception if country is not provided" duration="1"/>
+    <testCase name="customer should call save function" duration="1"/>
+    <testCase name="customer should return name field from backend" duration="8"/>
+  </file>
+</testExecutions>

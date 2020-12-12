@@ -1,0 +1,125 @@
+swagger: "2.0"
+info:
+  description: "This is a simple wrapper API."
+  version: "1.0.0"
+  title: "Public Wrapper"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "yucelz@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:3004"
+basePath: "/"
+schemes:
+- "http"
+paths:
+  /api/save:
+    post:
+      tags:
+      - "customer"
+      summary: "Add Customer"
+      description: "Add customer to Db with name, age,sex and country informations"
+      operationId: "saveCustomer"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Customer object that needs to be added to the db"
+        required: true
+        schema:
+          $ref: "#/definitions/Customer"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/CustomerResponse"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /api/countries:
+    get:
+      tags:
+      - "countries"
+      summary: "Get Countries"
+      description: "Multiple values can be provided with comma separated strings"
+      operationId: "getCountries"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Country"
+        500:
+          description: "Internal Server Error"
+  /ready:
+    get:
+      tags:
+      - "ready"
+      summary: "Health Check"
+      description: ""
+      operationId: "ready"
+      responses:
+        200:
+          description: "OK"
+        500:
+          description: "Internal Server Error"
+     
+definitions:
+  Country:
+    type: "string"
+    xml:
+      name: "Country"
+  Customer:
+    type: "object"
+    required:
+    - "name"
+    - "age"
+    - "sex"
+    - "country"
+    properties:
+      name:
+        type: "string"
+        example: "Yucel"
+      age:
+        type: "integer"
+        format: "int64"
+        example: 1
+      sex:
+        type: "string"
+        example: "Male"
+      country:
+        type: "string"
+        example: "United Kingdom"
+    xml:
+      name: "Customer"
+  CustomerResponse:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      name:
+        type: "string"
+        example: "Yucel"
+    xml:
+      name: "CustomerResponse"
+  ApiResponse:
+    type: "object"
+    properties:
+      status:
+        type: "integer"
+        format: "int32"
+      details:
+        type: "string"
+      message:
+        type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
